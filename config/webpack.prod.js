@@ -47,9 +47,4 @@ module.exports = merge(common, {
       name: "runtime",
     },
   },
-  performance: {
-    hints: false,
-    maxEntrypointSize: 512000,
-    maxAssetSize: 512000,
-  },
 });
