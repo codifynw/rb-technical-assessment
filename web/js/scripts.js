@@ -1,8 +1,10 @@
-import { product } from "prelude-ls";
+import { simpleProduct } from "./Components/simpleProduct";
 import "../css/styles.css";
 
+const parseButton = document.getElementById("parseButton");
+const contentContainer = document.getElementById("container");
+
 function init() {
-  const parseButton = document.getElementById("parseButton");
   parseButton.addEventListener("click", parseProducts);
 }
 
@@ -13,16 +15,18 @@ function parseProducts() {
     /* webpackChunkName: "json_products" */
     "../../products-list.json"
   ).then(({ default: productList }) => {
+    const productContainer = document.createElement("div");
+    productContainer.classList.add("product-container");
+    contentContainer.innerHTML = "";
+    contentContainer.appendChild(productContainer);
+
     productList.products
       .filter((product) => product.style.style == "drop-in")
       .forEach((product) => {
         const productEl = document.createElement("div");
-        productEl.classList.add("product");
-        productEl.innerHTML = `
-        <h3>${product.name}</h3>
-        <p>${product.price}</p>
-      `;
-        document.body.appendChild(productEl);
+        productEl.classList.add(`product`, `${product.style.style}`);
+        productEl.innerHTML = `${simpleProduct(product)}`;
+        productContainer.appendChild(productEl);
       });
   });
 }
