@@ -10,15 +10,26 @@ export class VanillaProduct {
     return productElement;
   }
 
+  fillQuantityElement(product) {
+    if (product.qty > 1) return ``;
+    return `<div class="product-quantity">
+            Only ${product.qty} left!
+        </div>`;
+  }
+
   fillProductElement(product) {
     return `
         <div class="product-image-wrap" title="${product.name}">
-            <img class="product-image" src="${product.style.image}">
+            <img class="product-image" src="${product.style.image}" alt="${
+      product.name
+    }">
         </div>
         <div class="product-info">
-            <h3>${product.name}</h3>
-            <div>$${product.price}</div>
+            ${this.fillQuantityElement(product)}
+            <div class="product-title bold">${product.name}</div>
             <p>${product.description}</p>
+            <div class="product-price bold">$${product.price}</div>
+            <button class="product-button bold">More Info</button>
         </div>`;
   }
 
