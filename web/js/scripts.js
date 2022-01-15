@@ -1,4 +1,4 @@
-import { simpleProduct } from "./Components/simpleProduct";
+import { SimpleProduct } from "./Components/simpleProduct";
 import "../css/styles.css";
 
 const parseButton = document.getElementById("parseButton");
@@ -23,10 +23,8 @@ function parseProducts() {
     productList.products
       .filter((product) => product.style.style == "drop-in")
       .forEach((product) => {
-        const productEl = document.createElement("div");
-        productEl.classList.add(`product`, `${product.style.style}`);
-        productEl.innerHTML = `${simpleProduct(product)}`;
-        productContainer.appendChild(productEl);
+        const productDiv = SimpleProduct(product);
+        productContainer.appendChild(productDiv);
       });
   });
 }
