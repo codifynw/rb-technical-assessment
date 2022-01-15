@@ -1,42 +1,54 @@
-import "./simpleProduct.css";
+import React from "react";
+import ReactDOM from "react-dom";
+import Button from "@mui/material/Button";
+
+function Product() {
+  return (
+    <Button variant="contained" color="primary">
+      Hello World
+    </Button>
+  );
+}
+
+export { Product };
 
 // COMPONENT WITH DESTRUCTURED PROPERTIES
-export const SimpleProduct = (
-  product = {
-    name: "Product Name",
-    description: "Product Description.",
-    sku: "SKU-001",
-    style: {
-      color: "artisan silver washed gold",
-      image: "web/img/sku001.jpg",
-      style: "drop-in",
-    },
-    qty: "0",
-    price: "99.99",
-  }
-) => {
-  const innerTemplate = function (product) {
-    return `
-        <div class="product-image">
-            <img src="${product.style.image}" alt="${product.name}">
-        </div>
-        <div class="product-info">
-            <h3>${product.name}</h3>
-            <div>$${product.price}</div>
-            <p>${product.description}</p>
-        </div>`;
-  };
+// export const SimpleProduct = (
+//   product = {
+//     name: "Product Name",
+//     description: "Product Description.",
+//     sku: "SKU-001",
+//     style: {
+//       color: "artisan silver washed gold",
+//       image: "web/img/sku001.jpg",
+//       style: "drop-in",
+//     },
+//     qty: "0",
+//     price: "99.99",
+//   }
+// ) => {
+//   const innerTemplate = function (product) {
+//     return `
+//         <div class="product-image">
+//             <img src="${product.style.image}" alt="${product.name}">
+//         </div>
+//         <div class="product-info">
+//             <h3>${product.name}</h3>
+//             <div>$${product.price}</div>
+//             <p>${product.description}</p>
+//         </div>`;
+//   };
 
-  const onClick = function () {
-    console.log("clicked");
-  };
+//   const onClick = function () {
+//     console.log("clicked");
+//   };
 
-  const productElement = document.createElement("div");
-  productElement.innerHTML = innerTemplate(product);
-  productElement.classList.add(`product`, `${product.style.style}`);
-  productElement.addEventListener("click", onClick);
-  return productElement;
-};
+//   const productElement = document.createElement("div");
+//   productElement.innerHTML = innerTemplate(product);
+//   productElement.classList.add(`product`, `${product.style.style}`);
+//   productElement.addEventListener("click", onClick);
+//   return productElement;
+// };
 
 // CLASS COMPONENT
 // export class SimpleProduct {

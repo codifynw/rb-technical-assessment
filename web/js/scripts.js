@@ -1,4 +1,7 @@
-import { SimpleProduct } from "./Components/simpleProduct";
+import React from "react";
+import ReactDOM from "react-dom";
+import { ProductGrid } from "./Components/ProductGrid";
+
 import "../css/styles.css";
 
 const parseButton = document.getElementById("parseButton");
@@ -15,17 +18,11 @@ function parseProducts() {
     /* webpackChunkName: "json_products" */
     "../../products-list.json"
   ).then(({ default: productList }) => {
-    const productContainer = document.createElement("div");
-    productContainer.classList.add("product-container");
-    contentContainer.innerHTML = "";
-    contentContainer.appendChild(productContainer);
-
-    productList.products
-      .filter((product) => product.style.style == "drop-in")
-      .forEach((product) => {
-        const productDiv = SimpleProduct(product);
-        productContainer.appendChild(productDiv);
-      });
+    console.log(productList);
+    ReactDOM.render(
+      <ProductGrid products={productList.products} />,
+      contentContainer
+    );
   });
 }
 
