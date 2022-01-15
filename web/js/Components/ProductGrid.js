@@ -1,15 +1,17 @@
 import React from "react";
 import { Product } from "./Product";
+import Grid from "@mui/material/Grid";
 
 function ProductGrid(props) {
   const products = props.products;
-  console.log(products);
   return (
-    <div className="product-container">
+    <Grid container spacing={2}>
       {products.map((product) => (
-        <Product key={product.sku} product={product} />
+        <Grid item lg={4} xs={6} key={product.sku}>
+          <Product key={product.sku} product={product} />
+        </Grid>
       ))}
-    </div>
+    </Grid>
   );
 }
 

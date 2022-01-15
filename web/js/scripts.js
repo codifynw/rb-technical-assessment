@@ -18,9 +18,12 @@ function parseProducts() {
     /* webpackChunkName: "json_products" */
     "../../products-list.json"
   ).then(({ default: productList }) => {
-    console.log(productList);
+    const filteredProducts = productList.products.filter(
+      (product) => product.style.style == "drop-in"
+    );
+
     ReactDOM.render(
-      <ProductGrid products={productList.products} />,
+      <ProductGrid products={filteredProducts} />,
       contentContainer
     );
   });
