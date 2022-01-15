@@ -20,7 +20,7 @@ header {
   height: 45px;
   line-height: 45px;
   color: #fff;
-  background-color: #CF4A01;
+  background-color: #cf4a01;
   border-radius: 50px;
   font-size: 1.125rem;
   font-family: "Lato", sans-serif;
@@ -30,6 +30,21 @@ header {
   text-decoration: none;
 }
 .instructions #parseButton:hover {
-  background: #CF4A01;
+  background: #cf4a01;
   box-shadow: 0 3px 6px rgb(190 10 10 / 26%);
+}
+
+.instructions #parseButtonMUI {
+  display: inline-block;
+  height: 45px;
+  line-height: 45px;
+  color: #fff;
+  background-color: cornflowerblue;
+  border-radius: 50px;
+  font-size: 1.125rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.23px;
+  padding: 0 30px;
+  text-decoration: none;
 }

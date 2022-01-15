@@ -6,8 +6,6 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-import "../../css/product.css";
-
 function Product(props) {
   const product = props.product;
   return (
